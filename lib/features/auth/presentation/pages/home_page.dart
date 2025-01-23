@@ -43,21 +43,34 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200], // Light grey background for the page
       body: userRecords.isEmpty
           ? const Center(child: Text('No user data found.'))
-          : Container(
-            child: ListView.builder(
+          : Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ListView.builder(
                 itemCount: userRecords.length,
                 itemBuilder: (context, index) {
                   final user = userRecords[index];
                   return Card(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                    child: ListTile(
-                      title: Text(user['displayName'] ?? 'Unknown'),
-                      subtitle: Column(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // Rounded corners
+                    ),
+                    elevation: 5, // Shadow for the card
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0), // Padding inside the card
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          Text(
+                            user['displayName'] ?? 'Unknown',
+                            style: Theme.of(context).textTheme.headline6?.copyWith(
+                                  color: Colors.blueAccent, // Title text color
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          const SizedBox(height: 8),
                           Text('User Code: ${user['userCode'] ?? 'N/A'}'),
                           Text('Email: ${user['email'] ?? 'N/A'}'),
                           Text('Employee Code: ${user['employeeCode'] ?? 'N/A'}'),
@@ -68,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
-          ),
+            ),
     );
   }
 }

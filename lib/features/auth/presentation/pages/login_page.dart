@@ -97,6 +97,7 @@ class _SignInPageState extends State<SignInPage> {
           }
 
           // Show success dialog
+          // ignore: use_build_context_synchronously
           showDialog(
             context: context,
             builder: (context) {
@@ -149,9 +150,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               const SizedBox(height: 40),
               // Show the loader while the login request is being processed
-              isLoading
-                  ? const FancyLoader(message: "Logging in...")
-                  : AuthButton(onPressed: _handleLogin),
+             AuthButton(onPressed: _handleLogin),
               const SizedBox(height: 20),
               GestureDetector(
                 child: RichText(

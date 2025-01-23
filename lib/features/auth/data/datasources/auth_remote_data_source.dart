@@ -9,6 +9,7 @@ abstract class AuthRemoteDataSource {
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final http.Client client;
+  bool isLoading = true;
 
   AuthRemoteDataSourceImpl(this.client);
 
