@@ -12,7 +12,7 @@ class FancyLoader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Rotating circle for a nicer effect
-          CircularProgressIndicator(
+          const CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
             strokeWidth: 6,
           ),
@@ -27,14 +27,14 @@ class FancyLoader extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           // Additional animation for a better visual effect
-          SizedBox(
+          const SizedBox(
             height: 40,
             width: 40,
             child: AnimatedOpacity(
               opacity: 0.7,
-              duration: const Duration(milliseconds: 500),
+              duration: Duration(milliseconds: 500),
               curve: Curves.easeInOut,
-              child: const Icon(
+              child: Icon(
                 Icons.hourglass_empty,
                 color: Colors.blue,
                 size: 40,

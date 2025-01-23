@@ -5,6 +5,8 @@ class CommonPopup extends StatelessWidget {
   final String content; // Popup content
   final VoidCallback? onClose; // Action for the single button
   final String buttonText; // Text for the single button
+  final IconData icon; // Icon to display
+  final Color iconColor; // Icon color
 
   const CommonPopup({
     Key? key,
@@ -12,6 +14,8 @@ class CommonPopup extends StatelessWidget {
     required this.content,
     this.onClose,
     this.buttonText = "OK", // Default button text
+    required this.icon, // Icon for popup
+    required this.iconColor, // Color for the icon
   }) : super(key: key);
 
   @override
@@ -24,12 +28,11 @@ class CommonPopup extends StatelessWidget {
       titlePadding: const EdgeInsets.all(16),
       contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       actionsPadding: const EdgeInsets.all(8),
-
       title: Row(
         children: [
-          const Icon(
-            Icons.check_circle, // Success icon
-            color: Colors.green,
+          Icon(
+            icon, // Dynamic icon
+            color: iconColor, // Dynamic icon color
             size: 28,
           ),
           const SizedBox(width: 8), // Spacing between icon and title
@@ -45,17 +48,15 @@ class CommonPopup extends StatelessWidget {
           ),
         ],
       ),
-
       content: Text(
         content,
         style: const TextStyle(fontSize: 16, color: Colors.black54),
       ),
-
       actions: [
         ElevatedButton(
           onPressed: onClose ?? () => Navigator.of(context).pop(),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.green, // Button color
+            backgroundColor: iconColor, // Match button color with icon
           ),
           child: Text(buttonText),
         ),

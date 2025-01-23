@@ -1,4 +1,5 @@
 import 'package:customers/core/theme/theme.dart';
+import 'package:customers/features/auth/presentation/pages/home_page.dart';
 import 'package:customers/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Customer App',
-      theme:AppTheme.darkThemeMode,
+      theme: AppTheme.darkThemeMode,
       home: const SignInPage(),
     );
   }
 }
-

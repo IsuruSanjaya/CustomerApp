@@ -6,7 +6,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 class AuthButton extends StatelessWidget {
   final Future<void> Function() onPressed; // Updated to Future<void>
 
-const AuthButton({
+  const AuthButton({
     super.key,
     required this.onPressed, // Store the callback
   });
@@ -15,12 +15,15 @@ const AuthButton({
     return Container(
       decoration: BoxDecoration(
           gradient: const LinearGradient(
-              colors: [AppPallete.gradient1, AppPallete.gradient2],begin: Alignment.bottomLeft,end: Alignment.topRight),
-              borderRadius: BorderRadius.circular(7)),
+              colors: [AppPallete.gradient1, AppPallete.gradient2],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight),
+          borderRadius: BorderRadius.circular(7)),
       child: ElevatedButton(
-onPressed: () async {
+        onPressed: () async {
           await onPressed(); // Call the provided callback
-        },        style: ElevatedButton.styleFrom(
+        },
+        style: ElevatedButton.styleFrom(
           fixedSize: Size(400, 55),
           backgroundColor: Colors.transparent,
         ),
