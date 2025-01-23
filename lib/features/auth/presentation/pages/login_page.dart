@@ -126,7 +126,7 @@ class _SignInPageState extends State<SignInPage> {
                 children: [
                   const Text(
                     'Sign In',
-                    style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 30),
                   AuthField(
